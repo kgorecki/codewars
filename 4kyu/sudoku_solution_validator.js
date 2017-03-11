@@ -1,4 +1,4 @@
-// Did I Finish my Sudoku 5th kyu kata
+// Solution Sudoku Validator 4th kyu kata - solution is the same as 5th kyu "Did I Finish my Sudoku"
 function validateCol(col) {
   var result = new Array(9);
   for (var i = 0; i < 9; i++)
@@ -12,18 +12,18 @@ function validateCol(col) {
   return true;
 }
 
-function doneOrNot(board) {
+function validSolution(board) {
   //check rows
   for (var i = 0; i < 9; i++)
     if (!validateCol(board[i]))
-      return "Try again!";
+      return false;
   var col = new Array(9);
   //check columns
   for (var i = 0; i < 9; i++) {
     for (var j = 0; j < 9; j++)
       col[j] = board[j][i];
     if (!validateCol(col))
-      return "Try again!";
+      return false;
   }
   //check regions
   for (var i = 0; i < 3; i++)
@@ -32,9 +32,9 @@ function doneOrNot(board) {
         for (var b = 0; b < 3; b++, c++)
           col[c] = board[i * 3 + a][j * 3 + b];
       if (!validateCol(col))
-        return "Try again!";
+        return false;
     }
 
-  return "Finished!";  
+  return true;
 }
 

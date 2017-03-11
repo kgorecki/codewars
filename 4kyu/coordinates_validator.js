@@ -17,3 +17,4 @@ function isValidCoordinates(coordinates) {
 
   return true;
 }
+

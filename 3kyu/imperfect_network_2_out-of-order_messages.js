@@ -22,3 +22,4 @@ NetworkClient.prototype.recv = function (data) {
     this.callback(this.messages[i]);
   this.last_displayed = i;
 };
+
