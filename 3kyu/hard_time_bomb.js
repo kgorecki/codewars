@@ -1,4 +1,4 @@
-// Hard Time Bomb 4th kyu kata
+// Hard Time Bomb 3rd kyu kata
 var wireCode; // Find the wire.
 var vars = Object.keys(global);
 for (var i = 0; i < vars.length; i++)
