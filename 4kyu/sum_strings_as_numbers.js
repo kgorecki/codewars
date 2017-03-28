@@ -5,7 +5,7 @@ function sumStrings(a, b) {
   var shorter;
   var ten = 0;
 
-if (a.length >= b.length) {
+  if (a.length >= b.length) {
     longer = a;
     shorter = b;
   } else {
