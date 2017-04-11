@@ -23,3 +23,18 @@ def find_duplicate_phone_numbers(phone_numbers):
       result.append(temp[:3] + "-" + temp[3:])
   return sorted(result)
 
+# with use of maketrans 
+from collections import defaultdict
+def find_duplicate_phone_numbers(phone_numbers):
+  chars = str.maketrans("abcdefghijklmnoprstuvwxy","222333444555666777888999")
+  numbers = defaultdict(int)
+  result = []
+  for i, row in enumerate(phone_numbers):
+    row = row.replace("-", "").lower().translate(chars)
+    numbers[row] += 1
+  for i, row in enumerate(numbers):
+    if numbers[row] > 1:
+      temp = row + ":" + str(numbers[row])
+      result.append(temp[:3] + "-" + temp[3:])
+  return sorted(result)
+
