@@ -13,6 +13,6 @@ std::string decodeMorse(std::string morseCode) {
         if (decoded.back() != ' ' && decoded.length() )
           decoded += " ";
     }
-    return decoded;
+    return decoded.erase(decoded.find_last_not_of(' ') + 1);
 }
 
