@@ -7,20 +7,17 @@ public class Kata
 {
   public static int getLoopSize(LoopDetector.Node startNode)
   {
-    List<LoopDetector.Node> visited = new List<LoopDetector.Node>();
-    
+    int counter = 0;
+    Dictionary<LoopDetector.Node, int> visited = new Dictionary<LoopDetector.Node, int>();
+
     LoopDetector.Node node = startNode.next;
-    while (null != node)
+    while (null != node && !visited.ContainsKey(node))
     {
-      if (visited.Contains(node))
-      {
-        return visited.Count - visited.IndexOf(node);
-      }
-      else
-        visited.Add(node);
+      visited.Add(node, counter);
       node = node.next;
+      ++counter;
     }
-    return 0;
+    return visited.Count - visited[node];
   }
 }
 
